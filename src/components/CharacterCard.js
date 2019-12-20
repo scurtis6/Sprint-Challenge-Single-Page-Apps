@@ -1,15 +1,16 @@
 import React from "react";
-import {Character, CharacterDiv} from './Styles';
+import {Character, CharacterDiv, SpeciesP, GenderP, OriginP, Url} from './Styles';
 
  const CharacterCard = props => {
   console.log(props)
     return (
     <div className="character" key={props.id}>
-      <Character className="name">Name: {props.name}</Character>
+      <Character className="name">Character: {props.name}</Character>
       <CharacterDiv>
-      <p className="species">Species: {props.species}</p>
-      <p className="gender">Gender: {props.gender}</p>
-      <p className="origin">Origin: {props.origin}</p>
+      <SpeciesP className="species">Species: {props.species}</SpeciesP>
+      <GenderP className="gender">Gender: {props.gender}</GenderP>
+      <OriginP className="origin">Origin: {props.origin}</OriginP>
+      <Url>Link: {props.url}</Url>
       </CharacterDiv>
     </div>
   );

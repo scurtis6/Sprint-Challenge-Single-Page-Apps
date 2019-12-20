@@ -40,6 +40,7 @@ const CharacterList = props => {
           species={character.species}
           gender={character.gender}
           origin={character.origin.name}
+          url={character.url}
           />
         );
       })}
