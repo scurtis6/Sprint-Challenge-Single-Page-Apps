@@ -6,27 +6,29 @@ import CharacterList from "./components/CharacterList";
 import WelcomePage from "./components/WelcomePage";
 import { Route, Link, Switch } from "react-router-dom";
 import CharacterCard from "./components/CharacterCard.js";
+import {NavLinks, NavLinksA} from "./components/Styles";
+
 
 
 export default function App() {
   return (
 
     <div className="App">
-      <div className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/:id">Characters</Link>
-      </div>
+      <NavLinks>
+        <Link to="/"><NavLinksA>Home</NavLinksA></Link>
+        <Link to="/CharactersList"><NavLinksA>Characters</NavLinksA></Link>
+        </NavLinks>
       <Header />
-      <WelcomePage />
-          <nav>
-        
-      </nav>
+      
       <main>
-        {/* <Route exact path="/" component={WelcomePage}></Route> */}
-        <CharacterList />
+        <Route exact path="/">
+          <WelcomePage />
+        </Route>
+        <Route path="/CharactersList">
+          <CharacterList />
+        </Route>
+
       </main>
-      
-      
    </div>
   );
 };

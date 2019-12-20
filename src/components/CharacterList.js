@@ -10,7 +10,9 @@ const CharacterList = props => {
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
-    console.log(characters);
+   
+    console.log(props.match);
+
     const getCharacters = () => {
       axios
       .get('https://rickandmortyapi.com/api/character')
@@ -33,6 +35,7 @@ const CharacterList = props => {
         return(
           <CharacterCard
           key={character.id}
+          id={character.id}
           name={character.name}
           species={character.species}
           gender={character.gender}
@@ -49,19 +52,19 @@ const CharacterList = props => {
   );
 }
 
-function CharacterDetails({ character }) {
-  console.log(character);
-  const {name, gender } = character;
-  return(
-    <Link to={`/character/${character.id}`}>
-      <div className="character-name">
-        <h2>Name: {name}</h2>
-        <div className="character-gender">
-          Gender: {gender}
-        </div>
-      </div>
-    </Link>
-  )
-}
+// function CharacterDetails({ character }) {
+//   console.log(character);
+//   const {name, gender } = character;
+//   return(
+//     <Link to={`/character/${character.id}`}>
+//       <div className="character-name">
+//         <h2>Name: {name}</h2>
+//         <div className="character-gender">
+//           Gender: {gender}
+//         </div>
+//       </div>
+//     </Link>
+//   )
+// }
 
 export default CharacterList;
