@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {Link} from "react-dom";
 import CharacterCard from "./CharacterCard";
-// import CharacterCard from "./CharacterCard";
+import SearchForm from "./SearchForm";
 
 const CharacterList = props => {
   // TODO: Add useState to track data from useEffect
@@ -10,14 +10,11 @@ const CharacterList = props => {
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
-   
-    console.log(props.match);
-
     const getCharacters = () => {
       axios
       .get('https://rickandmortyapi.com/api/character')
       .then(res => {
-        console.log(res);
+        console.log(res.data.results);
         setCharacters(res.data.results);
       })
       .catch(err => {
@@ -31,6 +28,8 @@ const CharacterList = props => {
 
   return (
     <div className="character-list">
+                <SearchForm />
+
       {characters.map(character => {
         return(
           <CharacterCard
@@ -41,6 +40,7 @@ const CharacterList = props => {
           gender={character.gender}
           origin={character.origin.name}
           url={character.url}
+          // location={character.location.name}
           />
         );
       })}
@@ -52,20 +52,5 @@ const CharacterList = props => {
     </div>
   );
 }
-
-// function CharacterDetails({ character }) {
-//   console.log(character);
-//   const {name, gender } = character;
-//   return(
-//     <Link to={`/character/${character.id}`}>
-//       <div className="character-name">
-//         <h2>Name: {name}</h2>
-//         <div className="character-gender">
-//           Gender: {gender}
-//         </div>
-//       </div>
-//     </Link>
-//   )
-// }
 
 export default CharacterList;

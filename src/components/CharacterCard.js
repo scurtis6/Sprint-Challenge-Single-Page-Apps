@@ -10,6 +10,7 @@ import {Character, CharacterDiv, SpeciesP, GenderP, OriginP, Url} from './Styles
       <SpeciesP className="species">Species: {props.species}</SpeciesP>
       <GenderP className="gender">Gender: {props.gender}</GenderP>
       <OriginP className="origin">Origin: {props.origin}</OriginP>
+      <OriginP className="location">Location: {props.location}</OriginP>
       <Url>Link: {props.url}</Url>
       </CharacterDiv>
     </div>
