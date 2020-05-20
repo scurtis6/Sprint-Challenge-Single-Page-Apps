@@ -1,8 +1,15 @@
 import React from "react";
+import styled from "styled-components";
+import {Main} from "./Styles";
+
+const HeaderContainer = styled.div`
+  text-align: center;
+`;
 
 export default function WelcomePage() {
   return (
     <section className="welcome-page">
+      <HeaderContainer>
       <header>
         <h1>Welcome to the ultimate fan site!</h1>
         <img
@@ -11,6 +18,7 @@ export default function WelcomePage() {
           alt="rick"
         />
       </header>
+      </HeaderContainer>
     </section>
   );
 }
